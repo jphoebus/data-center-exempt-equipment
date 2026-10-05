@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Counts as Exempt Data Center Equipment: A Five-State Comparison</title>
+<meta name="description" content="How Pennsylvania, Virginia, Ohio, Maryland, and Georgia define the equipment their data center sales tax exemptions cover, from networking hardware to software and replacements. Current as of October 2026.">
+<meta property="og:title" content="What Counts as Exempt Data Center Equipment: A Five-State Comparison">
+<meta property="og:description" content="How five states define the equipment their data center sales tax exemptions cover, from networking hardware to software and replacements.">
+<meta property="og:image" content="https://jphoebus.github.io/data-center-exempt-equipment/equipment-preview.png">
+<meta property="og:url" content="https://jphoebus.github.io/data-center-exempt-equipment/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --limestone: #EDF0F1;
+    --paper: #FFFFFF;
+    --ink: #1B2631;
+    --slate: #52606D;
+    --rule: #CBD2D9;
+    --accent: #1F5C4A;
+    --accent-soft: #DCEBE5;
+    --font: "Public Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--limestone);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .measure { max-width: 68ch; }
+
+  /* Header */
+  header { padding: 64px 0 40px; }
+  h1 {
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+    max-width: 18ch;
+  }
+  .lede { font-size: 1.15rem; color: var(--slate); margin: 0; }
+
+  /* Where each state stands */
+  .standing {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-top: 3px solid var(--ink);
+    margin-top: 40px;
+  }
+  .standing div {
+    padding: 16px 16px 20px 0;
+    border-right: 1px solid var(--rule);
+    padding-left: 16px;
+  }
+  .standing div:first-child { padding-left: 0; }
+  .standing div:last-child { border-right: 0; }
+  .standing strong { display: block; font-size: 1.25rem; font-weight: 700; }
+  .standing span { display: block; color: var(--slate); font-size: 0.95rem; }
+  .standing time { display: block; font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-top: 6px; }
+
+  /* Comparison */
+  section { padding: 48px 0; }
+  h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 12px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 20px; align-items: center; }
+  .filters p { margin: 0 8px 0 0; color: var(--slate); font-size: 0.95rem; }
+  .chip {
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border: 1.5px solid var(--accent);
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+  }
+  .chip[aria-pressed="false"] { background: transparent; color: var(--accent); }
+  .table-scroll {
+    overflow-x: auto;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+  table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 0.92rem; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--rule); }
+  thead th {
+    font-size: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--ink);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+  }
+  tbody th {
+    font-weight: 600;
+    color: var(--slate);
+    width: 170px;
+    position: sticky;
+    left: 0;
+    background: var(--paper);
+  }
+  tr.group th {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  [hidden] { display: none !important; }
+  td.empty { color: var(--slate); font-style: italic; }
+  td.sources a { display: block; word-break: break-word; margin-bottom: 4px; }
+  .status-msg { padding: 24px; color: var(--slate); }
+
+  /* Analysis */
+  .analysis { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .analysis h3 { font-size: 1.1rem; font-weight: 700; margin: 24px 0 4px; }
+  .analysis p { margin: 0; }
+  .question {
+    margin-top: 32px;
+    padding-left: 20px;
+    border-left: 4px solid var(--accent);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  ul.watch { padding-left: 1.1em; margin: 12px 0 0; }
+  ul.watch li { margin-bottom: 10px; }
+
+  footer { border-top: 1px solid var(--rule); padding: 40px 0 64px; color: var(--slate); font-size: 0.95rem; }
+  footer p { margin: 0 0 12px; }
+
+  @media (max-width: 800px) {
+    .standing { grid-template-columns: 1fr 1fr; }
+    .standing div { border-right: 0; border-bottom: 1px solid var(--rule); padding-left: 0; }
+    .analysis { grid-template-columns: 1fr; gap: 16px; }
+    header { padding-top: 40px; }
+  }
+  @media print {
+    .filters { display: none; }
+    body { background: #fff; }
+    .table-scroll { overflow: visible; border: 0; }
+    thead th, tbody th { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>What counts as exempt data center equipment</h1>
+    <p class="lede measure">How Pennsylvania, Virginia, Ohio, Maryland, and Georgia define the equipment their data center sales tax exemptions cover, from networking hardware to software and replacement purchases. Current as of October 2026.</p>
+    <p class="lede measure" style="margin-top:12px">Companion to <a href="https://jphoebus.github.io/state-incentive-comparison/">State data center incentives, compared</a>, which covers who qualifies and what the exemptions cost. This comparison looks at what the exemptions cover.</p>
+
+    <div class="standing" aria-label="How each state defines covered equipment">
+      <div><strong>Pennsylvania</strong><span>Names networking equipment and software licensing</span></div>
+      <div><strong>Virginia</strong><span>Names routers; software only with hardware</span></div>
+      <div><strong>Ohio</strong><span>Covers anything used to run the data center business</span></div>
+      <div><strong>Maryland</strong><span>Guidance names network infrastructure</span></div>
+      <div><strong>Georgia</strong><span>Names switches, routers, and cabling</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="comparison">
+    <div class="wrap">
+      <h2>Side-by-side comparison</h2>
+      <p class="measure">Choose which states to compare. On a phone, scroll the table sideways.</p>
+      <div class="filters" id="filters" role="group" aria-label="States to compare"><p>Showing:</p><button class="chip" type="button" aria-pressed="true" data-state="pennsylvania">Pennsylvania</button><button class="chip" type="button" aria-pressed="true" data-state="virginia">Virginia</button><button class="chip" type="button" aria-pressed="true" data-state="ohio">Ohio</button><button class="chip" type="button" aria-pressed="true" data-state="maryland">Maryland</button><button class="chip" type="button" aria-pressed="true" data-state="georgia">Georgia</button></div>
+      <div class="table-scroll" tabindex="0" aria-label="Comparison table">
+        <table id="table">
+<thead><tr><th scope="col"></th>
+<th scope="col" data-state="pennsylvania">Pennsylvania</th>
+<th scope="col" data-state="virginia">Virginia</th>
+<th scope="col" data-state="ohio">Ohio</th>
+<th scope="col" data-state="maryland">Maryland</th>
+<th scope="col" data-state="georgia">Georgia</th>
+</tr></thead><tbody>
+<tr class="group"><th colspan="6" scope="colgroup">The definition</th></tr>
+<tr><th scope="row">Defined term</th>
+<td data-state="pennsylvania">Computer data center equipment</td>
+<td data-state="virginia">Computer equipment or enabling software</td>
+<td data-state="ohio">Computer data center equipment</td>
+<td data-state="maryland">Qualified data center personal property</td>
+<td data-state="georgia">High-technology data center equipment</td>
+</tr>
+<tr><th scope="row">Legal authority</th>
+<td data-state="pennsylvania">Tax Reform Code Article XXIX-D; 72 P.S. § 9931-D</td>
+<td data-state="virginia">Va. Code § 58.1-609.3(18)</td>
+<td data-state="ohio">Ohio Rev. Code § 122.175; Ohio Admin. Code 122:28-1-02</td>
+<td data-state="maryland">Md. Tax-General § 11-239</td>
+<td data-state="georgia">O.C.G.A. § 48-8-3(68.1)</td>
+</tr>
+<tr class="group"><th colspan="6" scope="colgroup">What counts</th></tr>
+<tr><th scope="row">Networking equipment</th>
+<td data-state="pennsylvania">Named: networking equipment, switches, racks, cabling, trays, and conduits</td>
+<td data-state="virginia">Named: servers, routers, connections, and other enabling hardware</td>
+<td data-state="ohio">Not named; covered as tangible personal property used to conduct a computer data center business</td>
+<td data-state="maryland">Named in state guidance: network infrastructure, alongside servers, mainframes, and data storage</td>
+<td data-state="georgia">Named: switches, routers, wiring, and cabling</td>
+</tr>
+<tr><th scope="row">Software</th>
+<td data-state="pennsylvania">All software, including enabling software and licensing agreements</td>
+<td data-state="virginia">Enabling software when sold or leased with exempt equipment; software sold separately is taxable</td>
+<td data-state="ohio">Prewritten software used to operate, manage, or maintain the data center; excludes accounting, payroll, and HR software</td>
+<td data-state="maryland">Enabling software</td>
+<td data-state="georgia">Included in the definition</td>
+</tr>
+<tr><th scope="row">Replacements and upgrades</th>
+<td data-state="pennsylvania">Covered: the definition includes component parts, installations, refreshments, and replacements</td>
+<td data-state="virginia">Covered: purchases to upgrade, supplement, or replace equipment from the initial investment</td>
+<td data-state="ohio">Set in each agreement; the statute&#x27;s capital investment definition includes replacement and repair</td>
+<td class="empty" data-state="maryland">Not specified in sources reviewed</td>
+<td class="empty" data-state="georgia">Not specified in sources reviewed</td>
+</tr>
+<tr><th scope="row">Power and cooling</th>
+<td data-state="pennsylvania">Covered: power transformation and distribution equipment, generators, batteries, cooling systems, cooling towers, and air handling units</td>
+<td data-state="virginia">Covered: chillers and backup generators by statute; Tax Commissioner rulings extend to power distribution and environmental control equipment</td>
+<td data-state="ohio">Covered: equipment cooling systems, property that generates, transforms, or distributes electricity, and redundant power supply equipment</td>
+<td data-state="maryland">Covered per state guidance: property supplying electricity to the data center and equipment monitoring its power</td>
+<td data-state="georgia">Covered: emergency backup generators, air handling units, cooling towers, energy storage, power distribution units, switching gear, and batteries</td>
+</tr>
+<tr class="group"><th colspan="6" scope="colgroup">Limits</th></tr>
+<tr><th scope="row">Notable exclusions</th>
+<td data-state="pennsylvania">Telecommunications providers&#x27; data centers; equipment used to generate electricity for resale; local sales tax</td>
+<td data-state="virginia">Building improvements and fixtures; fuel</td>
+<td data-state="ohio">Property not part of the data center business, such as office furniture and general business software</td>
+<td data-state="maryland">Electricity purchases</td>
+<td data-state="georgia">None identified; covers both state and local sales tax</td>
+</tr>
+<tr><th scope="row">What it takes to qualify</th>
+<td data-state="pennsylvania">$75M or $100M capital investment by county size; servers, networking equipment, and software do not count toward the threshold</td>
+<td data-state="virginia">$150M investment and 50 jobs; $70M and 10 jobs in distressed localities</td>
+<td data-state="ohio">$100M investment over three years and $1.5M annual payroll</td>
+<td data-state="maryland">$2M (Tier 1 area) or $5M elsewhere, and 5 qualified positions</td>
+<td data-state="georgia">$250M, $75M, or $25M by county population, plus quality jobs, over a seven-year investment period</td>
+</tr>
+<tr class="group"><th colspan="6" scope="colgroup">Status and sources</th></tr>
+<tr><th scope="row">2026 status</th>
+<td data-state="pennsylvania">In effect; House passed repeal (HB 2198) 197-5 in June 2026 and the Senate passed repeal language in a separate bill, but neither was enacted; new applicants must meet the GRID Requirements (EO 2026-05)</td>
+<td data-state="virginia">In effect through June 30, 2035; Joint Subcommittee on Tax Policy review due Dec. 15, 2026</td>
+<td data-state="ohio">New applications paused since May 27, 2026; Substitute HB 646 would cut new exemptions to 50% and is expected to return after the November election</td>
+<td data-state="maryland">In effect; governor seeking repeal in the 2027 session</td>
+<td data-state="georgia">In effect through Dec. 31, 2031; 2026 bills to repeal or end it early did not pass</td>
+</tr>
+<tr><th scope="row">Sources</th>
+<td class="sources" data-state="pennsylvania"><a href="https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/incentivescreditsprograms/computerdatacenterequipprog/documents/computer_data_center_equip_exemption_program_guidelines.pdf" rel="noopener">pa.gov</a><a href="https://www.palegis.us/legislation/bills/text/PDF/2025/0/HB2198/PN3694" rel="noopener">palegis.us</a><a href="https://jphoebus.github.io/data-center-legislation-2026/" rel="noopener">jphoebus.github.io</a></td>
+<td class="sources" data-state="virginia"><a href="https://law.lis.virginia.gov/vacode/title58.1/chapter6/section58.1-609.3/" rel="noopener">law.lis.virginia.gov</a><a href="https://www.tax.virginia.gov/laws-rules-decisions/rulings-tax-commissioner/10-121" rel="noopener">tax.virginia.gov</a><a href="https://www.tax.virginia.gov/laws-rules-decisions/rulings-tax-commissioner/23-92" rel="noopener">tax.virginia.gov</a><a href="https://jphoebus.github.io/data-center-legislation-2026/" rel="noopener">jphoebus.github.io</a></td>
+<td class="sources" data-state="ohio"><a href="https://codes.ohio.gov/ohio-revised-code/section-122.175/9-30-2025" rel="noopener">codes.ohio.gov</a><a href="https://codes.ohio.gov/ohio-administrative-code/rule-122:28-1-02" rel="noopener">codes.ohio.gov</a><a href="https://jphoebus.github.io/data-center-legislation-2026/" rel="noopener">jphoebus.github.io</a></td>
+<td class="sources" data-state="maryland"><a href="https://commerce.maryland.gov/Documents/FinanceDocument/data-center-maryland-sales-and-use-tax-exemption-application.pdf" rel="noopener">commerce.maryland.gov</a><a href="https://jphoebus.github.io/data-center-legislation-2026/" rel="noopener">jphoebus.github.io</a></td>
+<td class="sources" data-state="georgia"><a href="https://gov.georgia.gov/document/2022-signed-legislation/hb-1291/download" rel="noopener">gov.georgia.gov</a><a href="https://ryan.com/about-ryan/news-and-insights/2018/high-tech-data-centers-sales-and-use-tax-exemption-on-equipment/" rel="noopener">ryan.com</a><a href="https://jphoebus.github.io/data-center-legislation-2026/" rel="noopener">jphoebus.github.io</a></td>
+</tr>
+<tr><th scope="row">Last updated</th>
+<td data-state="pennsylvania">2026-10-05</td>
+<td data-state="virginia">2026-10-05</td>
+<td data-state="ohio">2026-10-05</td>
+<td data-state="maryland">2026-10-05</td>
+<td data-state="georgia">2026-10-05</td>
+</tr>
+</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="analysis">
+    <div class="wrap">
+      <div class="analysis">
+        <div>
+          <h2>What stands out</h2>
+          <h3>Every state covers the network, not just the servers</h3>
+          <p>Pennsylvania, Virginia, and Georgia name networking equipment in their definitions, and Maryland's guidance lists network infrastructure. Ohio covers any property used to conduct a data center business. A change to any of these exemptions changes the cost of network buildouts in that state.</p>
+          <h3>Software is where definitions diverge</h3>
+          <p>Pennsylvania exempts all software, including licensing agreements. Virginia exempts software only when it is sold or leased with exempt hardware. Ohio limits the exemption to software used to run the data center. As more infrastructure value moves into software and subscriptions, those lines carry more weight.</p>
+          <h3>Replacements make the exemptions recurring</h3>
+          <p>Pennsylvania and Virginia explicitly cover replacement and upgrade purchases. Because data centers refresh equipment every few years, the exemption applies again with each cycle, which helps explain why costs have outrun early projections.</p>
+          <h3>What qualifies a project is not always what is exempt</h3>
+          <p>In Pennsylvania, servers, networking equipment, and software are exempt, but they do not count toward the capital investment threshold that qualifies a data center for the program.</p>
+        </div>
+        <div>
+          <h2>What to watch</h2>
+          <ul class="watch">
+            <li>Fall 2026: Pennsylvania's Senate has not acted on the House-passed repeal (HB 2198).</li>
+            <li>After November 3, 2026: Ohio's Substitute HB 646, which would cut new exemptions to 50%, is expected to return.</li>
+            <li>December 15, 2026: Virginia's Joint Subcommittee on Tax Policy reports on its exemption.</li>
+            <li>January 2027: Maryland's governor seeks repeal in the 2027 session.</li>
+            <li>By December 31, 2031: Georgia's exemption sunsets, after an evaluation required under the state's new rule for large incentives nearing expiration.</li>
+          </ul>
+          <p class="question">The question I expect to shape the next round: as states attach conditions rather than repeal outright, whether the definition of covered equipment becomes the next lever, narrowing what counts rather than ending the exemption.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap measure">
+    <p>Compiled by Joshua Phoebus, former Director of Performance and Transformation in the Office of Pennsylvania Governor Tom Wolf. <a href="https://www.linkedin.com/in/joshuaphoebus">LinkedIn</a> · <a href="https://www.joshuaphoebusllc.com">Website</a></p>
+    <p>Related: <a href="https://jphoebus.github.io/data-center-legislation-2026/">What states changed on data centers in 2026</a> · <a href="https://jphoebus.github.io/state-incentive-comparison/">State data center incentives, compared</a> · <a href="https://jphoebus.github.io/tax-incentive-evaluation/">How states check their tax incentives</a> · <a href="https://jphoebus.github.io/spark-grid-tracker/">DOE's SPARK grid selections, tracked</a></p>
+    <p>Each state's sources are listed in the table. Where a detail could not be confirmed, the table says so. The underlying data is in <a href="exempt-equipment.csv">exempt-equipment.csv</a>. This comparison is for policy analysis and is not tax or legal advice.</p>
+  </div>
+</footer>
+
+<script>
+  // Each state button shows or hides that state's column. The table itself is plain HTML,
+  // so it displays even if this script never runs.
+  document.querySelectorAll("#filters .chip").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var on = b.getAttribute("aria-pressed") === "true";
+      b.setAttribute("aria-pressed", on ? "false" : "true");
+      document.querySelectorAll('#table [data-state="' + b.dataset.state + '"]').forEach(function (c) { c.hidden = on; });
+    });
+  });
+</script>
+</body>
+</html>
