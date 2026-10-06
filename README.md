@@ -12,7 +12,7 @@ Debates over data center sales tax exemptions usually focus on who qualifies and
 
 - **Every state covers the network, not just the servers.** Pennsylvania, Virginia, and Georgia name networking equipment in their definitions, and Maryland's guidance lists network infrastructure. Ohio covers any property used to conduct a data center business.
 - **Software is where definitions diverge.** Pennsylvania exempts all software, including licensing agreements. Virginia exempts software only when it is sold or leased with exempt hardware. Ohio limits the exemption to software used to run the data center.
-- **Replacements make the exemptions recurring.** Pennsylvania and Virginia explicitly cover replacement and upgrade purchases, so the exemption applies again with each equipment refresh.
+- **Replacements make the exemptions recurring.** Pennsylvania and Virginia explicitly cover replacement and upgrade purchases, and Maryland and Georgia cover ongoing purchases throughout the benefit period. Georgia's fiscal analysts, drawing on the state's evaluation, estimate that about 20 percent of data center equipment is replaced each year, so the exemption applies again with each refresh cycle.
 - **What qualifies a project is not always what is exempt.** In Pennsylvania, servers, networking equipment, and software are exempt, but they do not count toward the capital investment threshold that qualifies a data center for the program.
 
 ## What to watch
