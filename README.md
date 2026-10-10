@@ -4,6 +4,8 @@ How Pennsylvania, Virginia, Ohio, Maryland, and Georgia define the equipment the
 
 **Interactive version:** [jphoebus.github.io/data-center-exempt-equipment](https://jphoebus.github.io/data-center-exempt-equipment/)
 
+**All projects:** [jphoebus.github.io](https://jphoebus.github.io/)
+
 ## Why this comparison
 
 Debates over data center sales tax exemptions usually focus on who qualifies and what the exemptions cost. This comparison looks at what they cover. Each state defines exempt equipment differently, and those definitions decide whether networking hardware, software, power and cooling systems, and replacement purchases fall inside the exemption. It is a companion to [State data center incentives, compared](https://jphoebus.github.io/state-incentive-comparison/).
